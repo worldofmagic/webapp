@@ -1,0 +1,73 @@
+div#page_head{
+    background-image: url('../images/logo.jpg');
+    background-position: 0px -120px;
+    height: 120px;
+}
+
+div#page_bottom{
+    color:white;
+    background-color:cornflowerblue;
+    height:84px;
+}
+
+div#page_head h1{
+    color:whitesmoke;
+    padding-top:20px;
+    padding-left:20px;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+div#page_head h2{
+    color:whitesmoke;
+    padding-top:10px;
+    padding-left:20px;
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+
+div#page_nav{
+    background-color:gold;
+}
+
+div.row{
+    margin:10px;
+}
+
+div.row a{
+    margin:10px;
+}
+
+table.tab_input{
+    margin-left:auto;
+    margin-right:auto;
+    border-collapse:separate;
+    border-spacing:0 5px;
+    width:660px;
+}
+
+ul#menu li{
+    display: inline;
+
+}
+
+ul{
+    list-style-type: none;
+}
+
+ul.errorlist{
+   list-style-type: none ;
+}
+
+ul.errorlist li{
+    color: red;
+    font-weight: bold;
+
+}
+
+ul.errorlist li:before {
+    content: "×";
+    padding-right: 4px;
+    font-weight: bold;
+    color: red;
+}

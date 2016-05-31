@@ -1,0 +1,17 @@
+{% extends "libapp/MainBase.html" %}
+
+{% block title %}MAC Library Home Page{% endblock %}
+
+{% block pageName %}Home{% endblock %}
+
+{% block Home %}active{% endblock %}
+
+{% block content %}
+    <div class="row">
+    {% load staticfiles %}
+        <a id="a_Books" class="col-md-2 thumbnail text-center" href="/books" ><img src="{% static 'images/books.jpg' %}"/>Available Books </a>
+        <a id="a_Dvds" class="col-md-2 thumbnail text-center"  href="/dvds" ><img src="{% static 'images/dvds.jpg' %}"/>Available Dvds</a>
+        <a id="a_Other" class="col-md-2 thumbnail text-center"  href="/others" ><img src="{% static 'images/others.jpg' %}"/>Other Items</a>
+    </div>
+{% endblock %}
+

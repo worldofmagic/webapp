@@ -1,0 +1,20 @@
+{% extends "libapp/MainBase.html" %}
+
+{% block title %}MAC Library - Other Available Item{% endblock %}
+
+{% block pageName %}other available items{% endblock %}
+
+{% block content %}
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <hr/>
+    <div id="links-div">
+        <ul>
+        {% for other in other_list %}
+            <li>{{ other }}</li>
+        {% empty %}
+            <li>Sorry，no available item found!</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

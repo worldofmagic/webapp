@@ -1,0 +1,31 @@
+{% extends "libapp/MainBase.html" %}
+
+{% block title %}MAC Library - My Account{% endblock %}
+
+{% block pageName %}account detail{% endblock %}
+
+{% block About %}active{% endblock %}
+
+{% block content %}
+
+    <table class = "table table-striped">
+    <caption>The operation Hour of the library is:</caption>
+    <thead>
+    </thead>
+    <tbody>
+    {% for time in opMsg %}
+        <tr><td>{{ time }}</td></tr>
+    {% empty %}
+       <tr><td>Sorry，no operation time found!</td></tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <p>{{ msg }}</p>
+
+
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <br/>
+
+
+{% endblock %}

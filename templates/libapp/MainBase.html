@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% load staticfiles %}
+            <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+            <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap-theme.min.css' %}" />
+            <link rel="stylesheet" type="text/css" href="{% static 'css/common_base.css' %}" />
+        <title>{% block title %}MAC Library{% endblock %}</title>
+    </head>
+    <body>
+        <div id="page_head">
+            <h1>Welcome to MAC Library!!</h1>
+            <h2>This is the {% block pageName %}MAC Library{% endblock %} page</h2>
+        </div>
+        {% load staticfiles %}
+            <script src="{% static 'js/jquery-1.12.3.min.js' %}"></script>
+            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <div id="page_nav">
+            <ul id="menu" class="nav nav-tabs">
+                <li class="hbar1 {% block Home %} {% endblock %}" role="presentation"><a href="/">Home</a></li>
+                <li class="hbar1 {% block About %} {% endblock %}" role="presentation"><a href = "/about">About</a></li>
+                <li class="hbar1 {% block Account %} {% endblock %}" role="presentation"><a href = "/myacct">My Account</a></li>
+                <li class="hbar1 {% block Register %} {% endblock %}" role="presentation"><a href = "/register">Register</a></li>
+                <ul class="dropdown">
+
+                </ul>
+            </ul>
+        </div>
+        <div id="page_content">
+            {% block content %}
+            <div >Welcome to the MAC Library!!</div>
+            {% endblock %}
+        </div>
+        <div id="page_bottom">
+            {% include 'libapp/bottom.html' %}
+        </div>
+    </body>
+</html>
