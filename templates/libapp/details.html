@@ -10,12 +10,12 @@
     <hr/>
     <div id="links-div">
         <table class="table table-striped">
-            <caption>Book details</caption>
+            <caption>Details</caption>
             <thead>
             <tr>
                 <th>title</th>
                 <th>duedate</th>
-                {% for i in book %}
+                {% for i in result %}
                     {% if i.itemtype == 'DVD' %}
                     <th>maker</th>
                     {% else %}
@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            {% for i in book %}
+            {% for i in result %}
                 {% if i.itemtype == 'Book' %}
                     <tr>
                         <th>{{ i.title }}</th>

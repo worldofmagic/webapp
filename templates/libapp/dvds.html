@@ -11,9 +11,9 @@
     <div id="links-div">
         <ul>
             {% for dvd in dvd_list %}
-            <li>{{ dvd }}</li>
+                <li><a href="/details/{{ dvd.id }}">{{ dvd }}</a></li>
             {% empty %}
-            <li>Sorry，no available dvd found!</li>
+                <li>Sorry，no available DVD found!</li>
             {% endfor %}
         </ul>
     </div>

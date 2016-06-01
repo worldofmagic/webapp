@@ -10,8 +10,13 @@ from django.shortcuts import get_list_or_404
 
 
 def details(request,item_id):
-    book = get_list_or_404(Book,id=item_id)
-    return render(request,'libapp/details.html',{'book':book})
+    items = get_list_or_404(Libitem,id=item_id)
+    for item in items:
+        if(item.itemtype == 'Book'):
+            result = get_list_or_404(Book,id=item_id)
+        else:
+            result = get_list_or_404(Dvd,id=item_id)
+    return render(request,'libapp/details.html',{'result':result})
 
 
 def index(request):
@@ -24,7 +29,7 @@ def books(request):
 
 
 def dvds(request):
-    dvd_list = ["DVD_" + str(x) for x in range(1,20)]
+    dvd_list = Dvd.objects.all()[:10]
     return render(request, 'libapp/dvds.html', {'dvd_list': dvd_list})
 
 
