@@ -16,6 +16,8 @@ class Libuser(User):
     province = models.CharField(max_length=2, choices=PROVINCE_CHOICES, default='ON')
     phone = models.IntegerField(null=True)
     postalcode = models.CharField(max_length=7,null=True,blank=True)
+    def __str__(self):
+        return self.username
 
 
 class Libitem(models.Model):
@@ -37,6 +39,12 @@ class Libitem(models.Model):
     def __str__(self):
         return self.title
 
+    def overdue(self):
+        if self.checked_out == True:
+            if timezone.now().date() < self.duedate:
+                return "Yes"
+            else:
+                return "No"
 
 class Book(Libitem):
     CATEGORY_CHOICES = (

@@ -36,7 +36,7 @@ class LibuserAdmin(admin.ModelAdmin):
 
 class BookAdmin(admin.ModelAdmin):
     fields = [('title', 'author', 'pubyr'), ('checked_out', 'itemtype', 'user', 'duedate'),'category']
-    list_display = ('title', 'borrower')
+    list_display = ('id','title', 'borrower','checked_out','duedate')
     actions = [renew]
 
     def borrower(self, obj=None):
@@ -48,7 +48,7 @@ class BookAdmin(admin.ModelAdmin):
 
 class DvdAdmin(admin.ModelAdmin):
     fields = [('title', 'maker', 'pubyr'), ('checked_out', 'itemtype', 'user', 'duedate'),'rate']
-    list_display = ('title','rate', 'borrower')
+    list_display = ('title','rate', 'borrower','checked_out','duedate')
     actions = [renew]
 
     def borrower(self, obj=None):

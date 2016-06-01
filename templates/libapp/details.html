@@ -1,0 +1,47 @@
+{% extends "libapp/MainBase.html" %}
+
+{% block title %}MAC Library - Available Books{% endblock %}
+
+{% block pageName %}available books{% endblock %}
+
+{% block content %}
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <hr/>
+    <div id="links-div">
+        <table class="table table-striped">
+            <caption>Book details</caption>
+            <thead>
+            <tr>
+                <th>title</th>
+                <th>duedate</th>
+                {% for i in book %}
+                    {% if i.itemtype == 'DVD' %}
+                    <th>maker</th>
+                    {% else %}
+                    <th>author</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for i in book %}
+                {% if i.itemtype == 'Book' %}
+                    <tr>
+                        <th>{{ i.title }}</th>
+                        <th>{{ i.duedate }}</th>
+                        <th>{{ i.author }}</th>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <th>{{ i.title }}</th>
+                        <th>{{ i.duedate }}</th>
+                        <th>{{ i.maker }}</th>
+                    </tr>
+                {% endif %}
+            {% empty %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^myacct/', libapp_views.myacct, name='myacct'),
     url(r'^register/', libapp_views.register, name='register'),
     url(r'^base/', libapp_views.base, name='base'),
+    url(r'^details/(\d+)', libapp_views.details, name='details'),
 ]

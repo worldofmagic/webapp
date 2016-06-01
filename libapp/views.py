@@ -4,8 +4,14 @@ from libapp.models import User
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from libapp.util.forms import RegisterForm
+from libapp.models import Libitem, Libuser, Dvd, Book
+from django.shortcuts import get_list_or_404
 # Create your views here.
 
+
+def details(request,item_id):
+    book = get_list_or_404(Book,id=item_id)
+    return render(request,'libapp/details.html',{'book':book})
 
 
 def index(request):
@@ -13,7 +19,7 @@ def index(request):
 
 
 def books(request):
-    book_list = ["Book_" + str(x) for x in range(1,20)]
+    book_list = Book.objects.all()[:10]
     return render(request, 'libapp/books.html', {'book_list': book_list})
 
 
