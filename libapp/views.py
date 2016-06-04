@@ -9,14 +9,14 @@ from django.shortcuts import get_list_or_404
 # Create your views here.
 
 
-def details(request,item_id):
+def details(request, item_id):
     items = get_list_or_404(Libitem,id=item_id)
     for item in items:
-        if(item.itemtype == 'Book'):
+        if item.itemtype == 'Book':
             result = get_list_or_404(Book,id=item_id)
         else:
             result = get_list_or_404(Dvd,id=item_id)
-    return render(request,'libapp/details.html',{'result':result})
+    return render(request, 'libapp/details.html', {'result': result})
 
 
 def index(request):
@@ -24,12 +24,12 @@ def index(request):
 
 
 def books(request):
-    book_list = Book.objects.all()[:10]
+    book_list = Book.objects.all().order_by("-pubyr")[:10]
     return render(request, 'libapp/books.html', {'book_list': book_list})
 
 
 def dvds(request):
-    dvd_list = Dvd.objects.all()[:10]
+    dvd_list = Dvd.objects.all().order_by("-pubyr")[:10]
     return render(request, 'libapp/dvds.html', {'dvd_list': dvd_list})
 
 
@@ -38,12 +38,14 @@ def others(request):
     return render(request, 'libapp/others.html', {'other_list': other_list})
 
 
-def myacct(request):
+def my_acct(request):
     msg = "Hello User!"
     return render(request, 'libapp/myacct.html', {'msg': msg})
 
+
 def base(request):
     return render(request, 'libapp/MainBase.html')
+
 
 def about(request):
     day_list = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]

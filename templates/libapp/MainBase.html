@@ -13,9 +13,8 @@
             <h1>Welcome to MAC Library!!</h1>
             <h2>This is the {% block pageName %}MAC Library{% endblock %} page</h2>
         </div>
-        {% load staticfiles %}
-            <script src="{% static 'js/jquery-1.12.3.min.js' %}"></script>
-            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            <script src="{% static 'bootstrap/js/jquery-1.12.3.min.js' %}"></script>
+            <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
         <div id="page_nav">
             <ul id="menu" class="nav nav-tabs">
                 <li class="hbar1 {% block Home %} {% endblock %}" role="presentation"><a href="/">Home</a></li>
