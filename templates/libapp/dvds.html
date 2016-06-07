@@ -9,12 +9,22 @@
     <a href="/"> Back to Homepage</a>
     <hr/>
     <div id="links-div">
-        <ul>
+    <table class="table table-striped">
+         <thead>
+            <tr>
+                <th>title</th>
+                <th>public year</th>
+            </tr>
+            </thead>
+            <tbody>
             {% for dvd in dvd_list %}
-                <li><a href="/details/{{ dvd.id }}">{{ dvd }}</a></li>
+                    <tr>
+                        <th><a href="/libapp/details/{{ dvd.id }}">{{ dvd }}</a></th>
+                        <th>{{ dvd.pubyr }}</th>
+                    </tr>
             {% empty %}
-                <li>Sorry，no available DVD found!</li>
             {% endfor %}
-        </ul>
+            </tbody>
+    </table>
     </div>
 {% endblock %}
