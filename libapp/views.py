@@ -13,12 +13,8 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 # Create your views here.
 
+
 def searchlib(request):
-    form = SearchLibForm()
-    return render(request, 'libapp/searchresult.html', {'form':form})
-
-
-def searchresult(request):
     if request.method == 'POST':
         form = SearchLibForm(request.POST)
         if form.is_valid():
@@ -29,10 +25,10 @@ def searchresult(request):
             result2 = Dvd.objects.filter(Q(title__icontains=title),Q(maker__icontains=name))
             results.extend(result1)
             results.extend(result2)
-            return render(request, 'libapp/searchresult.html', {'form':form, 'results':results})
+            return render(request, 'libapp/searchlib.html', {'form':form, 'results':results})
     else:
         form = SearchLibForm()
-    return render(request, 'libapp/searchresult.html', {'form':form})
+    return render(request, 'libapp/searchlib.html', {'form':form})
 
 def suggestions(request):
     suggestion_list =Suggestion.objects.all()

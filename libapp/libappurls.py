@@ -14,5 +14,4 @@ urlpatterns = [
     url(r'^newitem/', libapp_views.newitem, name='newitem'),
     url(r'^suggestions/', libapp_views.suggestions, name='suggestions'),
     url(r'^searchlib/', libapp_views.searchlib, name='searchlib'),
-    url(r'^searchresult/', libapp_views.searchresult, name='searchresult'),
 ]
