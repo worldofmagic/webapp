@@ -1,0 +1,35 @@
+{% extends "libapp/MainBase.html" %}
+
+{% block title %}MAC Library - Suggestions{% endblock %}
+
+{% block pageName %}Suggestions{% endblock %}
+
+{% block content %}
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <hr/>
+    <div id="links-div">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>title</th>
+                <th>public year</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in suggestion_list %}
+                <tr>
+                    <th>{{ item.title }}</th>
+                    <th>{{ item.pubyr }}</th>
+                </tr>
+            {% empty %}
+            {% endfor %}
+            <tr>
+                <td class="text-right"><a href="/libapp/newitem"><input type="button" value="Add Item" class="button"></a></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

@@ -4,6 +4,22 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+class Suggestion(models.Model):
+
+    TYPE_CHOICES = (
+        (1, 'Book'),
+        (2,'DVD'),
+        (3, 'Other'),
+    )
+    title = models.CharField(max_length=100)
+    pubyr = models.IntegerField(null=True, blank=True)
+    type = models.IntegerField(default=1, choices=TYPE_CHOICES)
+    cost = models.IntegerField()
+    num_interested = models.IntegerField()
+    comments = models.TextField()
+
+
+
 class Libuser(User):
     PROVINCE_CHOICES = (
         ('AB','Alberta'),  # The first value is actually stored in db, the second is descriptive

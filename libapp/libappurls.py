@@ -11,4 +11,7 @@ urlpatterns = [
     url(r'^register/', libapp_views.register, name='register'),
     url(r'^base/', libapp_views.base, name='base'),
     url(r'^details/(\d+)', libapp_views.details, name='details'),
+    url(r'^newitem/', libapp_views.newitem, name='newitem'),
+    url(r'^suggestions/', libapp_views.suggestions, name='suggestions'),
+    url(r'^searchresult/', libapp_views.searchresult, name='searchresult'),
 ]

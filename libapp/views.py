@@ -1,12 +1,50 @@
 import datetime
+from django.http import HttpResponse
 from libapp.util import util
 from libapp.models import User
 from django.shortcuts import render
 from django.shortcuts import render_to_response
 from libapp.util.forms import RegisterForm
-from libapp.models import Libitem, Libuser, Dvd, Book
+from libapp.models import Libitem, Libuser, Dvd, Book,Suggestion
 from django.shortcuts import get_list_or_404
+from libapp.forms import SuggestionForm,SearchLibForm
+from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 # Create your views here.
+
+def searchresult(request):
+    results = []
+    if request.method == 'POST':
+        form = SearchLibForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data['title']
+            name = form.cleaned_data['name']
+            result1 = Book.objects.filter(Q(title__contains=title)|Q(author__contains=name))
+            result2 = Dvd.objects.filter(Q(title__contains=title)|Q(maker__contains=name))
+            results.extend(result1)
+            results.extend(result2)
+            return render(request, 'libapp/searchresult.html', {'form':form, 'results':results})
+    else:
+        form = SearchLibForm()
+    return render(request, 'libapp/searchresult.html', {'form':form, 'results':results})
+
+def suggestions(request):
+    suggestion_list =Suggestion.objects.all()
+    return render(request, 'libapp/suggestions.html', {'suggestion_list': suggestion_list})
+
+def newitem(request):
+    suggestion_list2 =  Suggestion.objects.all()
+    if request.method == 'POST':
+        form = SuggestionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('libapp:suggestions'))
+        else:
+            return render(request, 'libapp/newitem.html', {'form':form, 'suggestion_list2':suggestion_list2})
+    else:
+        form = SuggestionForm()
+        return render(request, 'libapp/newitem.html', {'form':form, 'suggestion_list2':suggestion_list2})
 
 
 def details(request, item_id):
@@ -58,13 +96,13 @@ def about(request):
     day = datetime.datetime.today().weekday()
     time_list = opt_time[day_list[day]]
     if len(time_list) == 2:
-        hours = datetime.now().hour
+        hours = datetime.datetime.today().now().hour
         if time_list[0] <= hours < time_list[1]:
             msg = "Now the library is open."
         else:
             msg = "Now the library is closed."
     if len(time_list) == 4:
-        hours = datetime.datetime.now().hour
+        hours = datetime.datetime.today().now()
         print(hours)
         if time_list[0] <= hours < time_list[1] or time_list[2] <= hours < time_list[3]:
             msg = "Now the library is open."
