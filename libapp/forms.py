@@ -8,5 +8,6 @@ class SuggestionForm(forms.ModelForm):
 
 
 class SearchLibForm(forms.Form):
-    title = forms.CharField()
-    name = forms.CharField()
+    title = forms.CharField(required=False)
+    name = forms.CharField(required=False)
+

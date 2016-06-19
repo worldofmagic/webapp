@@ -39,9 +39,8 @@
             <tbody>
             {% for result in results %}
                     <tr>
-                        {% for i in result %}
-                            <td>i</td>
-                        {% endfor %}
+                        <th>{{ result.title }}</th>
+                        <th>{{ result.pubyr }}</th>
                     </tr>
             {% empty %}
             {% endfor %}

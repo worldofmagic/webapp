@@ -13,21 +13,31 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 # Create your views here.
 
+def searchlib(request):
+    form = SearchLibForm()
+    return render(request, 'libapp/searchresult.html', {'form':form})
+
+
 def searchresult(request):
     results = []
+    error = ""
     if request.method == 'POST':
         form = SearchLibForm(request.POST)
         if form.is_valid():
             title = form.cleaned_data['title']
             name = form.cleaned_data['name']
-            result1 = Book.objects.filter(Q(title__contains=title)|Q(author__contains=name))
-            result2 = Dvd.objects.filter(Q(title__contains=title)|Q(maker__contains=name))
-            results.extend(result1)
-            results.extend(result2)
-            return render(request, 'libapp/searchresult.html', {'form':form, 'results':results})
+            if(title or name):
+                result1 = Book.objects.filter(Q(title__contains=title)|Q(author__contains=name))
+                result2 = Dvd.objects.filter(Q(title__contains=title)|Q(maker__contains=name))
+                results.extend(result1)
+                results.extend(result2)
+                return render(request, 'libapp/searchresult.html', {'form':form, 'results':results,'error':error})
+            else:
+                error = "please input at lease one"
+                return render(request, 'libapp/searchresult.html', {'form':form, 'results':results,'error':error})
     else:
         form = SearchLibForm()
-    return render(request, 'libapp/searchresult.html', {'form':form, 'results':results})
+    return render(request, 'libapp/searchresult.html', {'form':form, 'results':results,'error':error})
 
 def suggestions(request):
     suggestion_list =Suggestion.objects.all()
