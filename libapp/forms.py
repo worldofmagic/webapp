@@ -5,7 +5,7 @@ class SuggestionForm(forms.ModelForm):
     class Meta:
         model = Suggestion
         fields = '__all__'
-
+    cost = forms.IntegerField(label='Estamited Cost in Dollars')
 
 class SearchLibForm(forms.Form):
     title = forms.CharField(required=False)

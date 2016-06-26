@@ -112,8 +112,8 @@
     <table name="libapp_dvd" schema="" catalog="" type="TABLE">
       <column name="libitem_ptr_id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="maker" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="rate" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="duration" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="rate" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <primary-key columns="libitem_ptr_id"/>
       <foreign-key name="#FAKE_libapp_dvd_1" columns="libitem_ptr_id" ref-table="libapp_libitem" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
     </table>
@@ -126,8 +126,8 @@
       <column name="last_chkout" sqlType="DATE" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="date_acquired" sqlType="DATE" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="pubyr" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="num_chkout" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_libapp_libitem_1" columns="user_id" ref-table="libapp_libuser" ref-schema="" ref-catalog="" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="1"/>
       <index name="libapp_libitem_e8701ad4" unique="true" columns="user_id"/>
@@ -141,6 +141,16 @@
       <column name="postalcode" sqlType="VARCHAR(7)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <primary-key columns="user_ptr_id"/>
       <foreign-key name="#FAKE_libapp_libuser_1" columns="user_ptr_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
+    </table>
+    <table name="libapp_suggestion" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="pubyr" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="type" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="cost" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="num_interested" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="comments" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
     </table>
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
