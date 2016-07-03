@@ -1,0 +1,35 @@
+{% extends "libapp/MainBase.html" %}
+
+{% block title %}MAC Library - My Item{% endblock %}
+
+{% block pageName %}my item{% endblock %}
+
+{% block content %}
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <hr/>
+    <div id="links-div">
+
+        <table class="table table-striped">
+         <thead>
+            <tr>
+                <th>Title</th>
+                <th>Publish Year</th>
+            </tr>
+            </thead>
+        <tbody>
+        {% if item_list %}
+            {% for item in item_list %}
+                <tr>
+                    <th><a href="/libapp/Details/{{ item.id }}">{{ item }}</a></th>
+                    <th>{{ item.pub_year }}</th>
+                </tr>
+            {% empty %}
+            {% endfor %}
+        {% else %}
+            <h1>{{ error_msg }}</h1>
+        {% endif %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

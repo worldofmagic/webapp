@@ -1,0 +1,21 @@
+{% extends "libapp/MainBase.html" %}
+
+{% block title %}MAC Library - Data Manage{% endblock %}
+
+{% block pageName %}import/export data{% endblock %}
+
+{% block content %}
+
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <hr/>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <h1>{{ log_msg }}</h1>
+            <a class="btn btn-primary" href="/libapp/DataImport.html" >Import Data</a>
+            <a class="btn btn-primary" href="/libapp/DataExport" >Export Data</a>
+        </div>
+    </div>
+
+{% endblock %}

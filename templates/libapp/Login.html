@@ -1,0 +1,39 @@
+{% extends "libapp/MainBase.html" %}
+
+{% load bootstrap %}
+
+{% block title %}MAC Library - Login{% endblock %}
+
+{% block pageName %}user login{% endblock %}
+
+{% block Hidden %}hidden="true"{% endblock %}
+
+{% block content %}
+
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <br/>
+
+    {% if password_is_wrong %}
+        <div class="alert alert-error">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>Warning!</h4>Wrong user name or password!
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <form class="form-horizontal" action="/libapp/Login/" method="post">
+                {% csrf_token %}
+                {{ form|bootstrap }}
+                <p class="form-actions">
+                    <input type="submit" value="Login" class="btn btn-primary">
+                    <a href=""><input type="button" value="Forget password?" class="btn btn-danger"></a>
+                    <a href="/libapp/Register/"><input type="button" value="Register" class="btn btn-success"></a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+
+
+{% endblock %}
