@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', libapp_views.index , name='index'),
     url(r'^index/', libapp_views.index, name='index'),
-    url(r'^libapp/', include('libapp.libappurls', namespace = 'libapp')),
+    url(r'^libapp/', include('libapp.libappurls', namespace ='libapp')),
 ]

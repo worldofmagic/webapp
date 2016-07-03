@@ -120,13 +120,13 @@
     <table name="libapp_libitem" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="title" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="itemtype" sqlType="VARCHAR(6)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="item_type" sqlType="VARCHAR(6)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="checked_out" sqlType="BOOL" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="duedate" sqlType="DATE" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="last_chkout" sqlType="DATE" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="due_date" sqlType="DATE" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="last_checkout" sqlType="DATE" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="date_acquired" sqlType="DATE" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="pubyr" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="num_chkout" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="pub_year" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="num_checkout" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="user_id" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <primary-key columns="id"/>
       <foreign-key name="#FAKE_libapp_libitem_1" columns="user_id" ref-table="libapp_libuser" ref-schema="" ref-catalog="" ref-columns="user_ptr_id" update-rule="3" delete-rule="3" deferrability="1"/>
@@ -138,14 +138,15 @@
       <column name="city" sqlType="VARCHAR(20)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="province" sqlType="VARCHAR(2)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
       <column name="phone" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
-      <column name="postalcode" sqlType="VARCHAR(7)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="postal_code" sqlType="VARCHAR(7)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="photo" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <primary-key columns="user_ptr_id"/>
       <foreign-key name="#FAKE_libapp_libuser_1" columns="user_ptr_id" ref-table="auth_user" ref-schema="" ref-catalog="" ref-columns="id" update-rule="3" delete-rule="3" deferrability="1"/>
     </table>
     <table name="libapp_suggestion" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="title" sqlType="VARCHAR(100)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="pubyr" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="pub_year" sqlType="INTEGER" precision="0" scale="-1" nullable="true" jdbcType="4"/>
       <column name="type" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="cost" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
       <column name="num_interested" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>

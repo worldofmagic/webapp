@@ -12,15 +12,15 @@
     <table class="table table-striped">
          <thead>
             <tr>
-                <th>title</th>
-                <th>public year</th>
+                <th>Title</th>
+                <th>Published Year</th>
             </tr>
             </thead>
             <tbody>
             {% for dvd in dvd_list %}
                     <tr>
-                        <th><a href="/libapp/details/{{ dvd.id }}">{{ dvd }}</a></th>
-                        <th>{{ dvd.pubyr }}</th>
+                        <th><a href="/libapp/Details/{{ dvd.id }}">{{ dvd }}</a></th>
+                        <th>{{ dvd.pub_year }}</th>
                     </tr>
             {% empty %}
             {% endfor %}

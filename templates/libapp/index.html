@@ -2,16 +2,19 @@
 
 {% block title %}MAC Library Home Page{% endblock %}
 
-{% block pageName %}Home{% endblock %}
+{% block pageName %}home{% endblock %}
 
 {% block Home %}active{% endblock %}
 
 {% block content %}
+    <div class="text-center">
+        <h1>Lucky Number is: {{ session_msg }} </h1>
+    </div>
     <div class="row">
     {% load staticfiles %}
-        <a id="a_Books" class="col-md-2 thumbnail text-center" href="/libapp/books" ><img src="{% static 'images/books.jpg' %}"/>Available Books </a>
-        <a id="a_Dvds" class="col-md-2 thumbnail text-center"  href="/libapp/dvds" ><img src="{% static 'images/dvds.jpg' %}"/>Available Dvds</a>
-        <a id="a_Other" class="col-md-2 thumbnail text-center"  href="/libapp/others" ><img src="{% static 'images/others.jpg' %}"/>Other Items</a>
+        <a id="a_Books" class="col-md-2 thumbnail text-center" href="/libapp/Books" ><img src="{% static 'images/books.jpg' %}"/>Available Books </a>
+        <a id="a_Dvds" class="col-md-2 thumbnail text-center"  href="/libapp/Dvds" ><img src="{% static 'images/dvds.jpg' %}"/>Available Dvds</a>
+        <a id="a_Other" class="col-md-2 thumbnail text-center"  href="/libapp/Others" ><img src="{% static 'images/others.jpg' %}"/>Other Items</a>
      </div>
 {% endblock %}
 

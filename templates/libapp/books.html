@@ -19,8 +19,8 @@
             <tbody>
             {% for book in book_list %}
                     <tr>
-                        <th><a href="/libapp/details/{{ book.id }}">{{ book }}</a></th>
-                        <th>{{ book.pubyr }}</th>
+                        <th><a href="/libapp/Details/{{ book.id }}">{{ book }}</a></th>
+                        <th>{{ book.pub_year }}</th>
                     </tr>
             {% empty %}
             {% endfor %}

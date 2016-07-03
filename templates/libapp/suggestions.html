@@ -20,12 +20,12 @@
             {% for item in suggestion_list %}
                 <tr>
                     <th>{{ item.title }}</th>
-                    <th>{{ item.pubyr }}</th>
+                    <th>{{ item.pub_year }}</th>
                 </tr>
             {% empty %}
             {% endfor %}
             <tr>
-                <td class="text-right"><a href="/libapp/newitem"><input type="button" value="Add Item" class="button"></a></td>
+                <td class="text-right"><a href="/libapp/NewItem"><input type="button" value="Add Item" class="button"></a></td>
                 <td></td>
                 <td></td>
             </tr>

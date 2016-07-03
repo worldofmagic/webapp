@@ -35,9 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bootstrapform',
     'libapp',
 ]
 
@@ -124,3 +124,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+SESSION_ENGINE= 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_AGE = 60 * 60
+
+MEDIA_ROOT = ''
+
+MEDIA_URL = '/libapp/media/'

@@ -13,13 +13,13 @@
             <caption>Details</caption>
             <thead>
             <tr>
-                <th>title</th>
-                <th>duedate</th>
+                <th>Title</th>
+                <th>Due Date</th>
                 {% for i in result %}
                     {% if i.itemtype == 'DVD' %}
-                    <th>maker</th>
+                    <th>Maker</th>
                     {% else %}
-                    <th>author</th>
+                    <th>Author</th>
                     {% endif %}
                 {% endfor %}
             </tr>

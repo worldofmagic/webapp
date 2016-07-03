@@ -8,12 +8,20 @@
 
 {% block content %}
 
+    <br/>
+    <a href="/"> Back to Homepage</a>
+    <hr/>
+
+    <br/>
+        <h2>This is the {{ cookie_msg }} time that this page being viewed.</h2>
+    <hr/>
+
     <table class = "table table-striped">
     <caption>The operation Hour of the library is:</caption>
     <thead>
     </thead>
     <tbody>
-    {% for time in opMsg %}
+    {% for time in op_msg %}
         <tr><td>{{ time }}</td></tr>
     {% empty %}
        <tr><td>Sorry，no operation time found!</td></tr>
@@ -21,11 +29,5 @@
     </tbody>
     </table>
     <p>{{ msg }}</p>
-
-
-    <br/>
-    <a href="/"> Back to Homepage</a>
-    <br/>
-
 
 {% endblock %}
